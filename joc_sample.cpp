@@ -2,6 +2,8 @@
 
 #include <list>
 
+using namespace joc;
+
 enum ContactType {
   Family,
   Friend,
@@ -32,14 +34,14 @@ void from_json(const nlohmann::json& j, ContactType& contactType) {
   }
 }
 
-struct Contact : public joc::JsonObject
+struct Contact : public JsonObject
 {
-  Contact() : joc::JsonObject({{"type", type},
-                               {"name", name},
-                               {"address", address},
-                               {"age", age},
-                               {"e-mail", email}
-                              }) {}
+  Contact() : JsonObject({{"type", type},
+                          {"name", name},
+                          {"address", address},
+                          {"age", age},
+                          {"e-mail", email}
+                         }) {}
   ContactType type;
   std::string name;
   std::string address;
@@ -47,11 +49,11 @@ struct Contact : public joc::JsonObject
   std::optional<std::string> email;
 };
 
-struct ContactBook : public joc::JsonObject
+struct ContactBook : public JsonObject
 {
-  ContactBook() : joc::JsonObject({{"owner", owner},
-                                   {"contact_list", contactList}
-                                  }) {}
+  ContactBook() : JsonObject({{"owner", owner},
+                              {"contact_list", contactList}
+                             }) {}
   std::string owner;
   std::list<Contact> contactList;
 };
