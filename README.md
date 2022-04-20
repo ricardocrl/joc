@@ -15,7 +15,7 @@ of any(*) user defined C++ data type.
 
 Example:
 
-```
+```cpp
 struct Contact : public joc::JsonObject
 {
   Contact() : joc::JsonObject({{"name", name},
@@ -41,7 +41,7 @@ struct ContactBook : public joc::JsonObject
 
 ...and can be used like so:
 
-```
+```cpp
 Contact mary;
 mary.name    = "Mary";
 mary.age     = 52;
